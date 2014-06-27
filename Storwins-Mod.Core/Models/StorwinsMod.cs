@@ -23,59 +23,28 @@ namespace Storwins_Mod.Core.Models
     [XmlRoot("storwins_mod")]
     public class StorwinsMod
     {
-        private string _version;
-        private DateTime _updateDate;
-        private DateTime _installDate;
-        private string _wotVersion;
-        private string _remotePath;
-        private List<StorwinsModPart> _modsList;
-
         public StorwinsMod()
         {
-            _modsList = new List<StorwinsModPart>();
+            Mods = new List<StorwinsModPart>();
         }
 
-        [XmlElement("version")]
-        public string Version
-        {
-            get { return _version; }
-            set { _version = value; }
-        }
+        [XmlElement("mod_version")]
+        public string Version { get; set; }
 
         [XmlElement("last_update")]
-        public DateTime UpdateDate
-        {
-            get { return _updateDate; }
-            set { _updateDate = value; }
-        }
+        public DateTime UpdateDate { get; set; }
 
         [XmlElement("last_install")]
-        public DateTime InstallDate
-        {
-            get { return _installDate; }
-            set { _installDate = value; }
-        }
+        public DateTime InstallDate { get; set; }
 
         [XmlElement("wot_version")]
-        public string WotVersion
-        {
-            get { return _wotVersion; }
-            set { _wotVersion = value; }
-        }
+        public string WotVersion { get; set; }
 
         [XmlElement("remote_path")]
-        public string RemotePath
-        {
-            get { return _remotePath; }
-            set { _remotePath = value; }
-        }
+        public string RemotePath { get; set; }
 
         [XmlArray("mods")]
         [XmlArrayItem("mod")]
-        public List<StorwinsModPart> Mods
-        {
-            get { return _modsList; }
-            set { _modsList = value; }
-        }
+        public List<StorwinsModPart> Mods {get; set; }
     }
 }
