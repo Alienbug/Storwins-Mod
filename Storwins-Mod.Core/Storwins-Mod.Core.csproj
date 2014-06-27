@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\FileCtr.cs" />
     <Compile Include="Controllers\WotCtr.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -17,9 +17,13 @@ namespace Storwins_Mod.Core.Controllers
             var fileInfo = FileVersionInfo.GetVersionInfo(pathToExe.ToString());
             var wotVersion = new WotExeVersion
             {
-                FileVersion = fileInfo.FileVersion,
                 ProductName = fileInfo.ProductName,
-                ProductVersion = fileInfo.ProductVersion
+                ProductVersion = fileInfo.ProductVersion,
+                MajorVersion = fileInfo.ProductMajorPart,
+                MinorVersion = fileInfo.ProductMinorPart,
+                PatchVersion = fileInfo.ProductBuildPart,
+                DeveloperVersion = fileInfo.ProductPrivatePart,
+                Path = path
             };
             return wotVersion;
         }

@@ -19,10 +19,25 @@ namespace Storwins_Mod.Core.Models
 {
     public class WotExeVersion
     {
-        public String FileVersion { get; set; }
+        private const String ResMod = "/res_mods/";
+        public Int32 MajorVersion { get; set; }
+        public Int32 MinorVersion { get; set; }
+        public Int32 PatchVersion { get; set; }
+        public Int32 DeveloperVersion { get; set; }
         public String ProductVersion { get; set; }
         public String ProductName { get; set; }
-
         public String Path { get; set; }
+        public String ResModPath {
+            get { return Path + ResMod;}
+        }
+
+        public String ResModVerPath
+        {
+            get
+            {
+                return String.Format("{0}/{1}/{2}.{3}.{4}/",
+                    Path, ResMod, MajorVersion, MinorVersion, PatchVersion);
+            }
+        }
     }
 }
