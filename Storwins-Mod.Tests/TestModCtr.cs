@@ -14,14 +14,16 @@
 // along with StorwinsMod.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Storwins_Mod.Core.Models
+namespace Storwins_Mod.Tests
 {
-    public class GitEntry
+    [TestClass]
+    public class TestModCtr
     {
-        public String Id;
-        public String Title;
-        public String Content;
-        public DateTime Updated;
+        [TestMethod]
+        public void TestMethod1()
+        {
+        }
     }
 }

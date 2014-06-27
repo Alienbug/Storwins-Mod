@@ -1,4 +1,19 @@
-﻿using System;
+﻿// This file is part of StorwinsMod.
+// 
+// StorwinsMod is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// StorwinsMod is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with StorwinsMod.  If not, see <http://www.gnu.org/licenses/>.
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Storwins_Mod.Core.Models;
@@ -7,80 +22,77 @@ namespace Storwins_Mod.Core.Controllers
 {
     public class FileCtr
     {
-        public int ModsFilesTooMany(string wotExePath, List<String> tmpModFiles)
+        /// <summary>
+        /// Checks if there are files not belonging to the given mod.
+        /// </summary>
+        /// <param name="wotExe">Wot exe path</param>
+        /// <param name="modFiles">Mod files that is suppose to be there</param>
+        /// <returns>List of files that are not part of the mod</returns>
+        public List<String> ModsFilesTooMany(WotExeVersion wotExe, List<String> modFiles)
         {
-            var wotCtr = new WotCtr();
-            var wotPath = wotCtr.GetExeVersion(wotExePath);
-            var tmpDirFiles = DirSearch(wotPath.ResModPath);
-            foreach (var file in tmpModFiles)
+            var tmpDirFiles = DirSearch(wotExe.ResModPath);
+            foreach (var file in modFiles)
             {
-                tmpDirFiles.Remove(wotPath.ResModPath + file);
+                tmpDirFiles.Remove(wotExe.ResModPath + file);
             }
-            tmpDirFiles.Remove(wotPath.ResModPath + "mods.xml");
-            tmpDirFiles.Remove(wotPath.ResModVerPath + "readme.txt");
-            return tmpDirFiles.Count;
+            tmpDirFiles.Remove(wotExe.ResModPath + "mods.xml");
+            tmpDirFiles.Remove(wotExe.ResModVerPath + "readme.txt");
+            return tmpDirFiles;
         }
 
-        public int ModsFilesTooLittle(string wotExePath, List<String> tmpModFiles)
+        /// <summary>
+        /// Checks if files are missing from the mod
+        /// </summary>
+        /// <param name="wotExe">Wot exe path</param>
+        /// <param name="modFiles">Mod files that is suppose to be there</param>
+        /// <returns>Files that are missing from the mod</returns>
+        public List<String> ModsFilesTooLittle(WotExeVersion wotExe, List<String> modFiles)
         {
-            var wotCtr = new WotCtr();
-            WotExeVersion wotPath = wotCtr.GetExeVersion(wotExePath);
-            List<String> tmpDirFiles = DirSearch(wotPath.ResModPath);
+            List<String> tmpDirFiles = DirSearch(wotExe.ResModPath);
             foreach (var file in tmpDirFiles)
             {
-                tmpModFiles.Remove(file.Substring(wotPath.ResModPath.Length));
+                modFiles.Remove(file.Substring(wotExe.ResModPath.Length));
             }
-            return tmpModFiles.Count;
+            return modFiles;
         }
 
-        public List<string> RemoveFilesList(String wotExePath, List<String> dirList, List<String> modList)
+        /// <summary>
+        /// This will delete all files in res_mods of the world of tanks folder.
+        /// </summary>
+        /// <param name="wotExe">Wot exe path</param>
+        public void DeleteAllFiles(WotExeVersion wotExe)
         {
-            var wotCtr = new WotCtr();
-            WotExeVersion wotPath = wotCtr.GetExeVersion(wotExePath);
-            foreach (var file in modList)
-            {
-                dirList.Remove(wotPath.ResModPath + file);
-            }
-            dirList.Remove(wotPath.ResModPath + "mods.xml");
-            dirList.Remove(wotPath.ResModVerPath + "readme.txt");
-            return dirList;
-        }
-
-        public List<string> RemoveDirFilesList(String wotExePath, List<String> dirList, List<String> modList)
-        {
-            var wotCtr = new WotCtr();
-            WotExeVersion wotPath = wotCtr.GetExeVersion(wotExePath);
-            foreach (var file in dirList)
-            {
-                modList.Remove(file.Substring(wotPath.ResModPath.Length));
-            }
-            return modList;
-        }
-
-        public void DeleteAllFiles(string wotPath)
-        {
-            foreach (string fileName in Directory.GetFiles(wotPath))
+            foreach (string fileName in Directory.GetFiles(wotExe.ResModPath))
             {
                 Console.WriteLine(fileName);
                 File.Delete(fileName);
             }
         }
 
-        public void WriteXmlConfig(String wotExePath, String xcPath)
+        /// <summary>
+        /// Rewrite the xvm config file.
+        /// </summary>
+        /// <param name="wotExe">Wot exe path</param>
+        /// <param name="xcPath">The path to the new xvm config file</param>
+        public void WriteXmlConfig(WotExeVersion wotExe, String xcPath)
         {
-            var wotCtr = new WotCtr();
-            WotExeVersion wotPath = wotCtr.GetExeVersion(wotExePath);
             xcPath = xcPath.Replace("\\", "/");
             var line = "${\"" + xcPath.Replace("/configs", "") + "\":\".\"}";
-            if (!Directory.Exists(wotPath.ResModPath + "xvm/"))
+            if (!Directory.Exists(wotExe.ResModPath + "xvm/"))
             {
-                Directory.CreateDirectory(wotPath.ResModPath + "xvm");
+                Directory.CreateDirectory(wotExe.ResModPath + "xvm");
             }
-            var xvmFile = new StreamWriter(wotPath.ResModPath + "xvm/configs/xvm.xc", false);
+            var xvmFile = new StreamWriter(wotExe.ResModPath + "xvm/configs/xvm.xc", false);
             xvmFile.WriteLine(line);
             xvmFile.Close();
         }
 
+        /// <summary>
+        /// Returns all files in a dir.
+        /// Will visit all subdirs.
+        /// </summary>
+        /// <param name="sDir">Directory to look through.</param>
+        /// <returns>List of files in the Directory</returns>
         public List<String> DirSearch(string sDir)
         {
             var files = new List<String>();

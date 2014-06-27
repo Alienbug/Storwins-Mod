@@ -50,8 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="WotCtr.cs" />
+    <Compile Include="TestWotCtr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestModCtr.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Storwins-Mod.Core\Storwins-Mod.Core.csproj">
