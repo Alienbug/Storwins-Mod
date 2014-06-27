@@ -30,8 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\packages\DotNetZip.1.9.3\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,9 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\FileCtr.cs" />
+    <Compile Include="Controllers\ModCtr.cs" />
     <Compile Include="Controllers\WotCtr.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\GitEntry.cs" />
+    <Compile Include="Models\StorwinsMod.cs" />
+    <Compile Include="Models\StorwinsModPart.cs" />
     <Compile Include="Models\WotExeVersion.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -51,7 +59,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
