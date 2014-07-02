@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storwins-Mod.Core", "Storwi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storwins-Mod.Tests", "Storwins-Mod.Tests\Storwins-Mod.Tests.csproj", "{A8EBA442-9F9C-48A4-A4ED-54BED144AC8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storwins-Mod.Maker", "Storwins-Mod.Maker\Storwins-Mod.Maker.csproj", "{F7E00BC5-B99B-4FCC-B2CB-149E8F9F7918}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A8EBA442-9F9C-48A4-A4ED-54BED144AC8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8EBA442-9F9C-48A4-A4ED-54BED144AC8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8EBA442-9F9C-48A4-A4ED-54BED144AC8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7E00BC5-B99B-4FCC-B2CB-149E8F9F7918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7E00BC5-B99B-4FCC-B2CB-149E8F9F7918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7E00BC5-B99B-4FCC-B2CB-149E8F9F7918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7E00BC5-B99B-4FCC-B2CB-149E8F9F7918}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
