@@ -1,16 +1,17 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Resources;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Storwins-Mod.Maker")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Storwins Mod Maker")]
+[assembly: AssemblyDescription("A program, that installs mods, that storwin creates for world of tanks. This is created in order to make it easy to install the mod.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Storwins-Mod.Maker")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCompany("Alienbug.dk")]
+[assembly: AssemblyProduct("Storwins Mod Maker")]
+[assembly: AssemblyCopyright("Copyright © Alienbug.dk 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -34,3 +35,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: NeutralResourcesLanguageAttribute("en")]

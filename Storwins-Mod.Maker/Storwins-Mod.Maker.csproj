@@ -31,6 +31,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>StorwinsMod-Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Storwins_Mod.Maker.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,6 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MakerOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MakerOptions.Designer.cs">
+      <DependentUpon>MakerOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModMakerMDI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -52,6 +73,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MakerOptions.resx">
+      <DependentUpon>MakerOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModMakerMDI.resx">
       <DependentUpon>ModMakerMDI.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\disk-black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StorwinsMod-Logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Storwins_Mod.Maker
@@ -86,6 +79,43 @@ namespace Storwins_Mod.Maker
             {
                 childForm.Close();
             }
+        }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmOptions = new MakerOptions();
+            frmOptions.ShowDialog(this);
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmAbout = new AboutBox();
+            frmAbout.ShowDialog(this);
+        }
+
+        private void donateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var url = "https://www.paypal.com/cgi-bin/webscr";
+            url += "?cmd=" + "_s-xclick" + "&hosted_button_id=" + "PNDLK5FBJVM3A";
+            System.Diagnostics.Process.Start(url);
+        }
+
+        private void homepageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            const string url = "http://alienbug.dk/products/storwins-mod-installer/";
+            System.Diagnostics.Process.Start(url);
+        }
+
+        private void contentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            const string url = "https://github.com/Alienbug/Storwins-Mod/wiki";
+            System.Diagnostics.Process.Start(url);
+        }
+
+        private void feedbackOrBugReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            const string url = "https://github.com/Alienbug/Storwins-Mod/issues";
+            System.Diagnostics.Process.Start(url);
         }
     }
 }
