@@ -33,16 +33,16 @@ namespace Storwins_Mod.Core.Controllers
         /// </summary>
         /// <param name="filePath">Path to local version.</param>
         /// <returns>Installed mod</returns>
-        public StorwinsMod ImportXml(string filePath)
+        public ModList ImportXml(string filePath)
         {
             //Todo: Consider using WotExeVersion for path.
-            var tempMod = new StorwinsMod();
+            var tempMod = new ModList();
             if (File.Exists(filePath))
             {
                 using (var testFileStream = File.OpenRead(filePath))
                 {
-                    var deserializer = new XmlSerializer(typeof(StorwinsMod));
-                    tempMod = (StorwinsMod)deserializer.Deserialize(testFileStream);
+                    var deserializer = new XmlSerializer(typeof(ModList));
+                    tempMod = (ModList)deserializer.Deserialize(testFileStream);
                 }
             }
             tempMod.Mods = tempMod.Mods.OrderBy(m => m.TypeOfMod).ToList();
@@ -52,15 +52,15 @@ namespace Storwins_Mod.Core.Controllers
         /// Export the mod to a local version.
         /// </summary>
         /// <param name="filePath">Path to local version.</param>
-        /// <param name="storwinsMod">Mod to be exported</param>
-        public void ExportXml(string filePath, StorwinsMod storwinsMod)
+        /// <param name="modList">Mod to be exported</param>
+        public void ExportXml(string filePath, ModList modList)
         {
             //Todo: Consider using WotExeVersion for path.
-            storwinsMod.UpdateDate = DateTime.UtcNow;
+            modList.UpdateDate = DateTime.UtcNow;
             using (var testFileStream = File.Create(filePath))
             {
-                var serializer = new XmlSerializer(typeof(StorwinsMod));
-                serializer.Serialize(testFileStream, storwinsMod);
+                var serializer = new XmlSerializer(typeof(ModList));
+                serializer.Serialize(testFileStream, modList);
                 testFileStream.Close();
             }
         }
@@ -70,16 +70,16 @@ namespace Storwins_Mod.Core.Controllers
         /// </summary>
         /// <param name="urlToMod">Uri to modsource</param>
         /// <returns>Remote mod</returns>
-        public StorwinsMod CheckXml(Uri urlToMod)
+        public ModList CheckXml(Uri urlToMod)
         {
-            var tmpMod = new StorwinsMod();
+            var tmpMod = new ModList();
             using (var client = new WebClient())
             {
                 using (var data = client.OpenRead(urlToMod))
                 {
-                    var deserializer = new XmlSerializer(typeof(StorwinsMod));
+                    var deserializer = new XmlSerializer(typeof(ModList));
                     if (data == null) return tmpMod;
-                    tmpMod = (StorwinsMod)deserializer.Deserialize(data);
+                    tmpMod = (ModList)deserializer.Deserialize(data);
                 }
             }
             return tmpMod;
@@ -113,17 +113,17 @@ namespace Storwins_Mod.Core.Controllers
         /// <summary>
         /// Update storwins mods, uses old mods to install new ones.  
         /// </summary>
-        /// <param name="instStorwinsMods">Old installed mods</param>
-        /// <param name="newStorwinsMods">New updated mods.</param>
+        /// <param name="instModsList">Old installed mods</param>
+        /// <param name="newModsList">New updated mods.</param>
         /// <returns>List of newly installed mods.</returns>
-        public StorwinsMod UpdateMods(StorwinsMod instStorwinsMods, StorwinsMod newStorwinsMods)
+        public ModList UpdateMods(ModList instModsList, ModList newModsList)
         {
-            newStorwinsMods.InstallDate = instStorwinsMods.InstallDate;
-            foreach (var newModPart in instStorwinsMods.Mods.Where(mp => mp.IsInstalled).SelectMany(mp => newStorwinsMods.Mods.Where(newModPart => mp.TypeOfMod == newModPart.TypeOfMod && mp.Name.Equals(newModPart.Name))))
+            newModsList.InstallDate = instModsList.InstallDate;
+            foreach (var newModPart in instModsList.Mods.Where(mp => mp.IsInstalled).SelectMany(mp => newModsList.Mods.Where(newModPart => mp.TypeOfMod == newModPart.TypeOfMod && mp.Name.Equals(newModPart.Name))))
             {
                 newModPart.IsInstalled = true;
             }
-            return newStorwinsMods;
+            return newModsList;
         }
 
         /// <summary>

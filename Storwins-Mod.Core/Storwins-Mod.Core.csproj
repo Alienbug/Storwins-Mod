@@ -49,8 +49,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\GitEntry.cs" />
-    <Compile Include="Models\StorwinsMod.cs" />
-    <Compile Include="Models\StorwinsModPart.cs" />
+    <Compile Include="Models\ModOptional.cs" />
+    <Compile Include="Models\ModTypes.cs" />
+    <Compile Include="Models\ModList.cs" />
+    <Compile Include="Models\Mod.cs" />
     <Compile Include="Models\WotExeVersion.cs">
       <SubType>Code</SubType>
     </Compile>

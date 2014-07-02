@@ -21,11 +21,11 @@ namespace Storwins_Mod.Core.Models
 {
     [Serializable]
     [XmlRoot("storwins_mod")]
-    public class StorwinsMod
+    public class ModList
     {
-        public StorwinsMod()
+        public ModList()
         {
-            Mods = new List<StorwinsModPart>();
+            Mods = new List<Mod>();
         }
 
         [XmlElement("mod_version")]
@@ -45,6 +45,6 @@ namespace Storwins_Mod.Core.Models
 
         [XmlArray("mods")]
         [XmlArrayItem("mod")]
-        public List<StorwinsModPart> Mods {get; set; }
+        public List<Mod> Mods {get; set; }
     }
 }
