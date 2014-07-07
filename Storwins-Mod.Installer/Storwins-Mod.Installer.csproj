@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F7E00BC5-B99B-4FCC-B2CB-149E8F9F7918}</ProjectGuid>
+    <ProjectGuid>{7BFBC437-350C-4C53-B13F-2884C868479B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Storwins_Mod.Maker</RootNamespace>
-    <AssemblyName>Storwins-Mod.Maker</AssemblyName>
+    <RootNamespace>Storwins_Mod.Installer</RootNamespace>
+    <AssemblyName>Storwins-Mod.Installer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,15 +31,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>StorwinsMod-Logo.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
-    <NoWin32Manifest>true</NoWin32Manifest>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>Storwins_Mod.Maker.Program</StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,58 +44,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox.Designer.cs">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MakerOptions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MakerOptions.Designer.cs">
-      <DependentUpon>MakerOptions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modification.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modification.Designer.cs">
-      <DependentUpon>Modification.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ModMakerMDI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModMakerMDI.Designer.cs">
-      <DependentUpon>ModMakerMDI.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutBox.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MakerOptions.resx">
-      <DependentUpon>MakerOptions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modification.resx">
-      <DependentUpon>Modification.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ModMakerMDI.resx">
-      <DependentUpon>ModMakerMDI.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -113,33 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\information-frame.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\question-frame.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\credit-cards.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\globe--arrow.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\report--exclamation.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\puzzle--plus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\puzzle--arrow.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\disk-black.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="StorwinsMod-Logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

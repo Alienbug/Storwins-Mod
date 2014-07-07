@@ -33,6 +33,7 @@ namespace Storwins_Mod.Core.Models
         {
             ModTypes.Skins, ModTypes.Sound, ModTypes.Misc
         };
+
         public List<ModTypes> CanBeAllowed = new List<ModTypes>
         {
             ModTypes.Icons,ModTypes.Zoom
