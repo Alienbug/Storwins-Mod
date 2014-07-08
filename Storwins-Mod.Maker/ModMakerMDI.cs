@@ -81,12 +81,6 @@ namespace Storwins_Mod.Maker
             }
         }
 
-        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var frmOptions = new MakerOptions();
-            frmOptions.ShowDialog(this);
-        }
-
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var frmAbout = new AboutBox();
@@ -116,6 +110,12 @@ namespace Storwins_Mod.Maker
         {
             const string url = "https://github.com/Alienbug/Storwins-Mod/issues";
             System.Diagnostics.Process.Start(url);
+        }
+
+        private void optionsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var frmOptions = new MakerOptions();
+            frmOptions.ShowDialog(this);
         }
     }
 }

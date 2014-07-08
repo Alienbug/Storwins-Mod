@@ -63,9 +63,29 @@ namespace Storwins_Mod.Maker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap credit_cards {
+        internal static System.Drawing.Bitmap alienbug_icon {
             get {
-                object obj = ResourceManager.GetObject("credit_cards", resourceCulture);
+                object obj = ResourceManager.GetObject("alienbug_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap book_question {
+            get {
+                object obj = ResourceManager.GetObject("book_question", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bug {
+            get {
+                object obj = ResourceManager.GetObject("bug", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,6 +123,16 @@ namespace Storwins_Mod.Maker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lifebuoy {
+            get {
+                object obj = ResourceManager.GetObject("lifebuoy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap puzzle_arrow {
             get {
                 object obj = ResourceManager.GetObject("puzzle_arrow", resourceCulture);
@@ -133,9 +163,9 @@ namespace Storwins_Mod.Maker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap report_exclamation {
+        internal static System.Drawing.Bitmap wrench_screwdriver {
             get {
-                object obj = ResourceManager.GetObject("report_exclamation", resourceCulture);
+                object obj = ResourceManager.GetObject("wrench_screwdriver", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

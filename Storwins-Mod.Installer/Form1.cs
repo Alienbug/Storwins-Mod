@@ -16,5 +16,11 @@ namespace Storwins_Mod.Installer
         {
             InitializeComponent();
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            var frmAbout = new AboutBox();
+            frmAbout.ShowDialog(this);
+        }
     }
 }

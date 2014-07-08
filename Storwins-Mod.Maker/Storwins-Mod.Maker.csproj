@@ -139,6 +139,12 @@
     <None Include="Resources\disk-black.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\lifebuoy.png" />
+    <None Include="Resources\bug.png" />
+    <None Include="Resources\book-question.png" />
+    <None Include="Resources\wrench-screwdriver.png" />
+    <None Include="Resources\abg-logo.png" />
+    <None Include="Resources\alienbug-icon.png" />
     <Content Include="StorwinsMod-Logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
